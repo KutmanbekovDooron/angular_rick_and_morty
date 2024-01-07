@@ -6,19 +6,21 @@ import { AppComponent } from './app.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { DetailPageComponent } from './pages/detail-page/detail-page.component';
 import { SavePageComponent } from './pages/save-page/save-page.component';
+import { LayoutAppComponent } from './layout/layout-app/layout-app.component';
+import { FooterComponent } from './layout/footer/footer.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     DetailPageComponent,
-    SavePageComponent
+    SavePageComponent,
+    LayoutAppComponent,
+    FooterComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

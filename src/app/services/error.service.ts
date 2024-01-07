@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { ProductService } from './product.service';
+import { RequestService } from './request.service';
 
 @Injectable({
   providedIn: 'root',
@@ -8,14 +8,14 @@ import { ProductService } from './product.service';
 export class ErrorService {
   error$ = new Subject<String>();
 
-  constructor(private productServer: ProductService) {}
+  constructor() {}
 
   handle(message: string) {
+    console.log(message);
     this.error$.next(message);
   }
 
   replay() {
     this.error$.next('');
-    this.productServer.getAll();
   }
 }
