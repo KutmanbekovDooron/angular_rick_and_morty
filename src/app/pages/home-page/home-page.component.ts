@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, timeout } from 'rxjs';
 import { ICharacter } from 'src/app/models/charactor';
 import { RequestService } from 'src/app/services/request.service';
 
@@ -9,13 +9,16 @@ import { RequestService } from 'src/app/services/request.service';
   styleUrls: ['./home-page.component.scss'],
 })
 export class HomePageComponent implements OnInit {
-  charactor: ICharacter;
+  charactor?: ICharacter;
   loading = true;
+
+  searchValue = '';
 
   constructor(private requestService: RequestService) {}
 
   ngOnInit(): void {
     this.requestService.getAll().subscribe((character) => {
+      console.log(character);
       this.charactor = character;
       this.loading = false;
     });

@@ -33,4 +33,38 @@
         grid-gap: 20px;
     }
 
+    .loading_contane{
+        display: block;
+        margin: auto;
+        padding: auto;
+        width: fit-content;
+        margin-top: 50px;
+        .loading{
+            width: 20px;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background: white;
+            box-shadow: 0 0 0 0 #fff;
+            animation: l2 1.5s infinite linear;
+            position: relative;
+
+            :before,
+            :after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            box-shadow: 0 0 0 0 #0004;
+            animation: inherit;
+            animation-delay: -0.5s;
+            }
+            :after {
+                animation-delay: -1s;
+            }
+            @keyframes l2 {
+                100% {box-shadow: 0 0 0 20px #0000}
+            }
+        }
+    }
+
 }

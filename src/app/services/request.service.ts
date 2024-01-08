@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, catchError, throwError } from 'rxjs';
+import { Observable, catchError, throwError, timeout } from 'rxjs';
 import { ICharacter } from '../models/charactor';
 import { ErrorService } from './error.service';
 
@@ -18,7 +18,7 @@ export class RequestService {
   getAll(): Observable<ICharacter> {
     return this.httpClient
       .get<ICharacter>(base_api)
-      .pipe(catchError(this.errorHandler));
+      .pipe(catchError(this.errorHandler), timeout(2000));
   }
 
   errorHandler(error: HttpErrorResponse) {

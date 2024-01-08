@@ -10,6 +10,7 @@ import { LayoutAppComponent } from './layout/layout-app/layout-app.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CharacterComponent } from './components/character/character.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { CharacterComponent } from './components/character/character.component';
     FooterComponent,
     CharacterComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
