@@ -1,12 +1,71 @@
+@mixin status{
+    border-radius: 100%;
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+}
+
+
 .contaner {
+    width: 600px;
     display: flex;
-    flex-direction: row;
-    width: 1/2;
-    height: 200px;
+    height: 240px;
     color: white;
+    border-radius: 10px;
     background-color: rgb(60, 62, 68);
 
-    div {
-        margin: 20px;
+    .image {
+        border-radius: 10px 0 0 10px;
+     }
+    
+    .product__info {
+        padding: 15px;
+
+        .main_title{
+            font-size: x-large;
+            font-weight: 600;
+            margin: 0px;
+        }
+     
+         .status_row {
+             display: flex;
+             flex-direction: row;
+             align-items: center;
+
+             .status_red {
+                @include status();
+                background-color: red,
+            }
+            .status_green {
+                @include status();
+                background-color: green,
+            }
+            .status_gray {
+                @include status();
+                background-color: gray,
+            }
+
+            .status_text{
+                font-weight: 600;
+            }
+     
+         }
+     
+         .subtitle {
+             color: gray;
+             font-size: medium;
+             font-weight: 500;
+             margin: 0px;   
+         }
+     
+         .title{
+             color: white;
+             font-size: large;
+             font-weight: 500;
+             margin-top: 8px; 
+         }
     }
+
+    
+
 }
