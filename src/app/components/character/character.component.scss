@@ -1,0 +1,12 @@
+.contaner {
+    display: flex;
+    flex-direction: row;
+    width: 1/2;
+    height: 200px;
+    color: white;
+    background-color: rgb(60, 62, 68);
+
+    div {
+        margin: 20px;
+    }
+}

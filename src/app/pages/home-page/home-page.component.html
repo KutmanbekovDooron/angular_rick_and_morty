@@ -5,8 +5,8 @@
 </app-layout-app>
 
 
-<div>
-    
+<div class="content" *ngIf="charactor.results">
+    <app-character *ngFor="let character of charactor.results" [product]="character"></app-character>
 </div>
 
 

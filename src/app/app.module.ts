@@ -9,6 +9,7 @@ import { SavePageComponent } from './pages/save-page/save-page.component';
 import { LayoutAppComponent } from './layout/layout-app/layout-app.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CharacterComponent } from './components/character/character.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
     SavePageComponent,
     LayoutAppComponent,
     FooterComponent,
+    CharacterComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],

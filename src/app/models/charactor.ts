@@ -1,4 +1,7 @@
-export interface ICharacter {}
+export interface ICharacter {
+  info: Info;
+  results: Result[];
+}
 
 interface Info {
   count: number;
@@ -9,7 +12,7 @@ interface Info {
 
 export type status = 'Alive' | 'Dead' | 'Unknown';
 
-interface Result {
+export interface Result {
   id: number;
   name: string;
   status: status;

@@ -9,11 +9,15 @@ import { RequestService } from 'src/app/services/request.service';
   styleUrls: ['./home-page.component.scss'],
 })
 export class HomePageComponent implements OnInit {
-  charactor$: Observable<ICharacter>;
+  charactor: ICharacter;
+  loading = true;
 
   constructor(private requestService: RequestService) {}
 
   ngOnInit(): void {
-    this.charactor$ = this.requestService.getAll();
+    this.requestService.getAll().subscribe((character) => {
+      this.charactor = character;
+      this.loading = false;
+    });
   }
 }
