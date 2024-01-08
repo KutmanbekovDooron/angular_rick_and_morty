@@ -1,3 +1,16 @@
-<div class="content" *ngIf="charactor.results">
-    <app-character *ngFor="let character of charactor.results" [product]="character"></app-character>
+
+<div class="main">
+    <div class="search_container">
+        <input type="text" 
+        class="search_input" 
+        placeholder="Search character..."
+    />
+
+    <img class="filter" src="assets/filter.png" alt="">
+
+    </div>
+    <div class="content" *ngIf="charactor.results">
+        <app-character *ngFor="let character of charactor.results" [product]="character"></app-character>
+    </div>
+
 </div>

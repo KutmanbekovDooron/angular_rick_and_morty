@@ -1,8 +1,36 @@
-.content {
-    display: flex;
-    flex-wrap: wrap;
+
+.main{
     padding: 40px;
-    gap: 20px;
-    justify-content: space-between;
-    background-color: rgb(39, 43, 51);
+
+    .search_container {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        .search_input{
+            width: 100%;   
+            border: 2px;
+            border-radius: 10px;
+            padding-inline: 16px;
+            padding: 10px 8px 10px 8px;
+            background-color: rgb(60, 62, 68);
+            color: white;
+            font-size: medium;
+            margin-right: 16px;
+        }
+
+
+        .filter {
+            color: rgb(60, 62, 68);
+            height: 35px;
+            width: 35px;
+        }
+
+    }
+
+    .content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Автоматически создает колонки */
+        grid-gap: 20px;
+    }
+
 }
