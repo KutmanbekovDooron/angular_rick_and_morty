@@ -1,1 +1,10 @@
-<p>save-page works!</p>
+<div class="main">
+ <h3 *ngIf="{errorMessage}" class="errorMessage">{{errorMessage}}</h3>
+
+    <div *ngIf="loading" class="loading_contane"><div class="loading"></div></div>
+
+    <div class="content" *ngIf="character">
+        <app-character *ngFor="let character of character" [product]="character"></app-character>
+    </div>
+
+</div>

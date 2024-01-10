@@ -8,6 +8,7 @@
 
 .contaner {
     display: flex;
+    justify-content: space-between;
     height: 220px;
     color: white;
     border-radius: 10px;
@@ -15,10 +16,22 @@
 
     .image {
         border-radius: 10px 0 0 10px;
+        width: 40%;
      }
     
     .product__info {
         padding: 15px;
+        width: 55%;
+
+        .save_div{
+            display: flex;
+            justify-content: space-between;
+
+            .icon_style{
+                color: white;
+            }
+
+        }
 
         .main_title{
             font-size: x-large;

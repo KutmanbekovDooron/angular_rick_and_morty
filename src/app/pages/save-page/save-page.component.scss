@@ -1,0 +1,17 @@
+
+.main{
+    
+    padding: 40px;
+
+    .errorMessage{
+        color: red;
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    .content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Автоматически создает колонки */
+        grid-gap: 20px;
+    }
+}

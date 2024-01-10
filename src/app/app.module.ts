@@ -1,6 +1,4 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
@@ -11,6 +9,10 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CharacterComponent } from './components/character/character.component';
 import { FormsModule } from '@angular/forms';
+import { NgIconsModule } from '@ng-icons/core';
+import { heroBookmark } from '@ng-icons/heroicons/outline';
+import { heroBookmarkSolid } from '@ng-icons/heroicons/solid';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,13 @@ import { FormsModule } from '@angular/forms';
     FooterComponent,
     CharacterComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    NgIconsModule.withIcons({ heroBookmark, heroBookmarkSolid }),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

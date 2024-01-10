@@ -1,17 +1,12 @@
+import { LocalStorageService } from './../../services/local-storage.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {
   BehaviorSubject,
-  Observable,
-  Subject,
   catchError,
   debounceTime,
   distinctUntilChanged,
-  retry,
-  switchAll,
   switchMap,
-  throwError,
-  timeout,
 } from 'rxjs';
 import { ICharacter } from 'src/app/models/charactor';
 import { RequestService } from 'src/app/services/request.service';

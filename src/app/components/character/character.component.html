@@ -2,8 +2,11 @@
     <img class="image" [src]="product.image" [alt]="product.name">
 
     <div class="product__info">
-        <p class="main_title">{{ product.name }}</p>
-
+        <div class="save_div">
+            <p class="main_title">{{ product.name }}</p>
+            <ng-icon *ngIf="isSave()" (click)="unSave()"  class="icon_style" size="24px"  name="heroBookmarkSolid"></ng-icon>
+            <ng-icon *ngIf="!isSave()" (click)="onSave()" class="icon_style" size="24px"  name="heroBookmark"></ng-icon>
+        </div>
         <div  class="status_row">
             <div class="{{getStatus()}}"></div>
             <p class="status_text">{{product.status}} - {{product.species}}</p>
@@ -13,6 +16,7 @@
         <p class="title">{{product.location.name}}</p>
         <p class="subtitle">Last known location</p>
         <p class="title">{{product.location.name}}</p>
+
     </div>
 
 

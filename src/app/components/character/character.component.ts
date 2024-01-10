@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Result } from 'src/app/models/charactor';
-
+import { LocalStorageService } from 'src/app/services/local-storage.service';
 @Component({
   selector: 'app-character',
   templateUrl: './character.component.html',
@@ -8,6 +8,20 @@ import { Result } from 'src/app/models/charactor';
 })
 export class CharacterComponent {
   @Input() product: Result;
+
+  constructor(private localStorageService: LocalStorageService) {}
+
+  onSave() {
+    this.localStorageService.addItem(this.product.id);
+  }
+
+  unSave() {
+    this.localStorageService.removeItem(this.product.id);
+  }
+
+  isSave(): boolean {
+    return this.localStorageService.isSave(this.product.id);
+  }
 
   getStatus() {
     let color;
