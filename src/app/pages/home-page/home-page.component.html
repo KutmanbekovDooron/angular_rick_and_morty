@@ -4,15 +4,17 @@
         <input type="text" 
         class="search_input" 
         placeholder="Search character..."
-        [(ngModel)]="searchValue"
+        (keyup)="search(getValue($event))"
     />
-
     <img class="filter" src="assets/filter.png" alt="">
     </div>
 
+
+    <h3 *ngIf="{errorMessage}" class="errorMessage">{{errorMessage}}</h3>
+
     <div *ngIf="loading" class="loading_contane"><div class="loading"></div></div>
 
-    <div class="content" *ngIf="charactor">
+    <div class="content" *ngIf="charactor && !loading && !errorMessage">
         <app-character *ngFor="let character of charactor.results" [product]="character"></app-character>
     </div>
 

@@ -2,6 +2,11 @@
 .main{
     padding: 40px;
 
+    .errorMessage{
+        color: red;
+        text-align: center;
+    }
+
     .search_container {
         display: flex;
         align-items: center;
@@ -23,6 +28,10 @@
             color: rgb(60, 62, 68);
             height: 35px;
             width: 35px;
+
+            &:hover{
+                cursor: pointer;
+            }
         }
 
     }
