@@ -10,7 +10,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { CharacterComponent } from './components/character/character.component';
 import { FormsModule } from '@angular/forms';
 import { NgIconsModule } from '@ng-icons/core';
-import { heroBookmark } from '@ng-icons/heroicons/outline';
+import {
+  heroBookmark,
+  heroAdjustmentsHorizontal,
+} from '@ng-icons/heroicons/outline';
 import { heroBookmarkSolid } from '@ng-icons/heroicons/solid';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -29,7 +32,11 @@ import { BrowserModule } from '@angular/platform-browser';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgIconsModule.withIcons({ heroBookmark, heroBookmarkSolid }),
+    NgIconsModule.withIcons({
+      heroBookmark,
+      heroBookmarkSolid,
+      heroAdjustmentsHorizontal,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],
