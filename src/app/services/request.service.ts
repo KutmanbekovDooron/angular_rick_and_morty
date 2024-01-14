@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, catchError, throwError, timeout } from 'rxjs';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { ICharacter, Result } from '../models/charactor';
 
 const base_api = 'https://rickandmortyapi.com/api/character';
@@ -11,8 +11,22 @@ const base_api = 'https://rickandmortyapi.com/api/character';
 export class RequestService {
   constructor(private httpClient: HttpClient) {}
 
-  getAll(name: string): Observable<ICharacter> {
-    return this.httpClient.get<ICharacter>(`${base_api}/?name=${name}`);
+  getAll(
+    name: string,
+    status: string = '',
+    gender: string = '',
+    species: string = ''
+  ): Observable<ICharacter> {
+    return this.httpClient.get<ICharacter>(`${base_api}`, {
+      params: new HttpParams({
+        fromObject: {
+          name: name,
+          status: status == 'status' ? '' : status,
+          gender: gender == 'gender' ? '' : gender,
+          species: species,
+        },
+      }),
+    });
   }
 
   getAllSaved(list: number[]): Observable<Result[]> {

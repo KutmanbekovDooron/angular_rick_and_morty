@@ -1,14 +1,21 @@
 
 <div class="main">
     <div class="search_container">
-        <input type="text" 
+        <input appDebounse (onEvent)="hundleSerch($event)" type="text" 
         class="search_input" 
         placeholder="Search character..."
-        (keyup)="search(getValue($event))"
     />
-    
 
-    <ng-icon class="filter" size="30px"  name="heroAdjustmentsHorizontal"></ng-icon>
+    <ng-icon class="filter"  (click)="filterDialogService.toggle()" size="30px"  name="heroAdjustmentsHorizontal"></ng-icon>
+    </div>
+
+
+    <div *ngIf="filterDialogService.isVisivle$ | async">
+
+        <app-filter-dialog [statusValue]="statusValue" [genderValue]="genderValue" [speciesValue]="speciesValue" 
+        (status)="onChnage($event)" (gender)="onChnage($event)" (species)="onChnage($event)">
+    
+        </app-filter-dialog>
     </div>
 
 
@@ -16,7 +23,7 @@
 
     <div *ngIf="loading" class="loading_contane"><div class="loading"></div></div>
 
-    <div class="content" *ngIf="charactor && !loading && !errorMessage">
+    <div class="content" *ngIf="!loading && !errorMessage">
         <app-character *ngFor="let character of charactor.results" [product]="character"></app-character>
     </div>
 

@@ -1,0 +1,37 @@
+
+
+<!-- <div class="backgrount_dialog" (click)="filterDialogService.close()">
+</div> -->
+
+<div class="conten">
+
+    <div class="dropdawn">
+        <label class="lable" >Choose a gender:</label>
+        <select class="select_design" [(ngModel)]="genderValue" (ngModelChange)="gender.emit(genderValue)">
+            <option value="gender">not choice</option>
+            <option value="Female">female</option>
+            <option value="Male">male</option>
+            <option value="Genderless">genderless</option>
+            <option value="Unknown">unknown</option>
+        </select>
+    </div>
+    
+
+    <div class="dropdawn">
+        <label class="lable" >Choose a status:</label>
+        <select class="select_design" [(ngModel)]="statusValue" (ngModelChange)="status.emit(statusValue)">
+            <option value="status">not choice</option>
+            <option value="Alive">alive</option>
+            <option value="Dead">dead</option>
+            <option value="Unknown">unknown</option>
+        </select>
+    </div>
+    
+
+    <div>
+        <label class="lable">Species</label>
+        <input [(ngModel)]="speciesValue" (ngModelChange)="species.emit(speciesValue)" class="select_design" type="text" placeholder="species">
+    </div>
+    
+    
+</div>

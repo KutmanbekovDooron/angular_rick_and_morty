@@ -1,3 +1,6 @@
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+
 export interface ICharacter {
   info: Info;
   results: Result[];
@@ -10,15 +13,21 @@ interface Info {
   prev?: string;
 }
 
-export type status = 'Alive' | 'Dead' | 'Unknown';
+export type statusType = 'Alive' | 'Dead' | 'Unknown' | 'status';
+export type genderType =
+  | 'Female'
+  | 'Male'
+  | 'Genderless'
+  | 'Unknown'
+  | 'gender';
 
 export interface Result {
   id: number;
   name: string;
-  status: status;
+  status: statusType;
   species: string;
   type: string;
-  gender: string;
+  gender: genderType;
   origin: {
     name: string;
     url: string;
@@ -31,4 +40,22 @@ export interface Result {
   episode: string[];
   url: string;
   created: string;
+}
+@Injectable({
+  providedIn: 'root',
+})
+export class FilterDialogService {
+  isVisivle$ = new BehaviorSubject<boolean>(false);
+
+  close() {
+    this.isVisivle$.next(false);
+  }
+
+  open() {
+    this.isVisivle$.next(true);
+  }
+
+  toggle() {
+    this.isVisivle$.next(!this.isVisivle$.getValue());
+  }
 }

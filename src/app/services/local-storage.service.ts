@@ -18,7 +18,6 @@ export class LocalStorageService {
   }
 
   addItem(value: number) {
-    console.log('list', value);
     var list = this.getItems();
     list.push(value);
     this.setItem(list);

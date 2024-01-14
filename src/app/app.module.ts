@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomePageComponent } from './pages/home-page/home-page.component';
+import { HomePageComponent } from './pages/home-page/home-page-component';
 import { DetailPageComponent } from './pages/detail-page/detail-page.component';
 import { SavePageComponent } from './pages/save-page/save-page.component';
 import { LayoutAppComponent } from './layout/layout-app/layout-app.component';
@@ -16,6 +16,8 @@ import {
 } from '@ng-icons/heroicons/outline';
 import { heroBookmarkSolid } from '@ng-icons/heroicons/solid';
 import { BrowserModule } from '@angular/platform-browser';
+import { FilterDialogComponent } from './components/filter-dialog/filter-dialog.component';
+import { DebounseDirective } from './dirictive/debounse.directive';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { BrowserModule } from '@angular/platform-browser';
     LayoutAppComponent,
     FooterComponent,
     CharacterComponent,
+    FilterDialogComponent,
+    DebounseDirective,
   ],
   imports: [
     BrowserModule,
