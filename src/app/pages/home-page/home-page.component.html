@@ -18,13 +18,13 @@
         </app-filter-dialog>
     </div>
 
+    <div class="content" *ngIf="charactor.results">
+        <app-character *ngFor="let character of charactor.results" [product]="character"></app-character>
+    </div>
+
 
     <h3 *ngIf="{errorMessage}" class="errorMessage">{{errorMessage}}</h3>
 
     <div *ngIf="loading" class="loading_contane"><div class="loading"></div></div>
-
-    <div class="content" *ngIf="!loading && !errorMessage">
-        <app-character *ngFor="let character of charactor.results" [product]="character"></app-character>
-    </div>
 
 </div>

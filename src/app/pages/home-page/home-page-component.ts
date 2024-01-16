@@ -1,12 +1,13 @@
+import { ICharacter } from './../../models/charactor';
 import {
   FilterDialogService,
+  Result,
   genderType,
   statusType,
 } from 'src/app/models/charactor';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { catchError } from 'rxjs';
-import { ICharacter } from 'src/app/models/charactor';
 import { RequestService } from 'src/app/services/request.service';
 
 @Component({
@@ -15,7 +16,13 @@ import { RequestService } from 'src/app/services/request.service';
   styleUrls: ['./home-page.component.scss'],
 })
 export class HomePageComponent implements OnInit {
-  charactor: ICharacter;
+  charactor: ICharacter = {
+    info: {
+      count: 0,
+      pages: 0,
+    },
+    results: [],
+  };
   loading = true;
   errorMessage = '';
 
@@ -34,7 +41,7 @@ export class HomePageComponent implements OnInit {
     this.getData();
   }
 
-  getData() {
+  getData(nextUrl?: string) {
     this.loading = true;
     this.errorMessage = '';
 
@@ -43,14 +50,22 @@ export class HomePageComponent implements OnInit {
         this.searchValue,
         this.statusValue,
         this.genderValue,
-        this.speciesValue
+        this.speciesValue,
+        nextUrl
       )
       .pipe(catchError(this.errorHandler))
       .subscribe((character) => {
         if (typeof character == 'string') {
           this.errorMessage += character;
         } else {
-          this.charactor = character;
+          if (nextUrl != undefined) {
+            this.charactor.info = character.info;
+            this.charactor.results = this.charactor.results.concat(
+              character.results
+            );
+          } else {
+            this.charactor = character;
+          }
         }
         this.loading = false;
       });
@@ -84,5 +99,27 @@ export class HomePageComponent implements OnInit {
       this.speciesValue = event;
     }
     this.getData();
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  onScroll(event: Event): void {
+    if (this.isScrolledToBottom()) {
+      this.loadMoreContent();
+    }
+  }
+
+  private isScrolledToBottom(): boolean {
+    const windowHeight = window.innerHeight;
+    const scrollHeight = document.documentElement.scrollHeight;
+    const scrollTop =
+      document.documentElement.scrollTop || document.body.scrollTop;
+
+    return scrollTop + windowHeight >= scrollHeight;
+  }
+
+  private loadMoreContent(): void {
+    if (this.charactor.info.next) {
+      this.getData(this.charactor.info.next);
+    }
   }
 }

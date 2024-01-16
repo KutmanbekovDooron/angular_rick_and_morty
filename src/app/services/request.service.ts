@@ -15,18 +15,22 @@ export class RequestService {
     name: string,
     status: string = '',
     gender: string = '',
-    species: string = ''
+    species: string = '',
+    nextUrl?: string
   ): Observable<ICharacter> {
-    return this.httpClient.get<ICharacter>(`${base_api}`, {
-      params: new HttpParams({
-        fromObject: {
-          name: name,
-          status: status == 'status' ? '' : status,
-          gender: gender == 'gender' ? '' : gender,
-          species: species,
-        },
-      }),
-    });
+    return this.httpClient.get<ICharacter>(
+      `${nextUrl == undefined ? base_api : nextUrl}`,
+      {
+        params: new HttpParams({
+          fromObject: {
+            name: name,
+            status: status == 'status' ? '' : status,
+            gender: gender == 'gender' ? '' : gender,
+            species: species,
+          },
+        }),
+      }
+    );
   }
 
   getAllSaved(list: number[]): Observable<Result[]> {

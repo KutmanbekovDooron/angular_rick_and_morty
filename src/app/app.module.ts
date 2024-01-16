@@ -18,6 +18,7 @@ import { heroBookmarkSolid } from '@ng-icons/heroicons/solid';
 import { BrowserModule } from '@angular/platform-browser';
 import { FilterDialogComponent } from './components/filter-dialog/filter-dialog.component';
 import { DebounseDirective } from './dirictive/debounse.directive';
+import { ScrollDirective } from './dirictive/scroll.directive';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { DebounseDirective } from './dirictive/debounse.directive';
     CharacterComponent,
     FilterDialogComponent,
     DebounseDirective,
+    ScrollDirective,
   ],
   imports: [
     BrowserModule,
