@@ -57,6 +57,13 @@ export class HomePageComponent implements OnInit {
       .subscribe((character) => {
         if (typeof character == 'string') {
           this.errorMessage += character;
+          this.charactor = {
+            info: {
+              count: 0,
+              pages: 0,
+            },
+            results: [],
+          };
         } else {
           if (nextUrl != undefined) {
             this.charactor.info = character.info;
